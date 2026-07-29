@@ -1,5 +1,13 @@
 # Architecture
 
+## Inde
+
+* [Concerns](concerns.md)
+* [Task](task.md)
+* [Stack](stack.md)
+* [Task Server](task_server.md)
+* [Time Log](time_log.md)
+
 ## Typical workflow
 
 * Previous day

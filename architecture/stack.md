@@ -1,4 +1,4 @@
-# List
+# Stack
 
 * Title
 * List of tasks
