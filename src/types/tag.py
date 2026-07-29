@@ -1,0 +1,2 @@
+class TAG:
+    pass
