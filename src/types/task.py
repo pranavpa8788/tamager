@@ -1,25 +1,28 @@
-from dataclasses import dataclass, field
 from uuid import UUID, uuid4
 from datetime import datetime
+from dataclasses import dataclass, field
 
-from types.status import STATUS
-from types.category import CATEGORY
-from types.priority import PRIORITY
-from types.tag import TAG
+from src.types.tag import TAG
+from src.types.status import STATUS
+from src.types.category import CATEGORY
+from src.types.priority import PRIORITY
+from src.types.time.time_log import TimeLog
+from src.types.time.time_block import TimeBlock
 
 #TODO: move start_time and stop_time into a separate time block object and add field for time log record
 
 @dataclass
 class Task:
-    id: UUID = field(default_factory=uuid4)
     title: str
     description: str
     status: STATUS
+
+    id: UUID = field(default_factory=uuid4)
     priority: PRIORITY | None = None
     category: CATEGORY | None = None
     tag: TAG | None = None
-    start_time: datetime | None = None
-    stop_time: datetime | None = None
+    time_block: TimeBlock | None = None
+    time_log: TimeLog | None = None
 
     def __eq__(self, other) -> bool:
         if other.__class__ is self.__class__:
@@ -29,7 +32,7 @@ class Task:
             raise Exception(f"Unexpected comparison between classes: {self.__class__} and {other.__class__}")
     
     def block_time(self, start_time: datetime, stop_time: datetime) -> None:
-        self.start_time = start_time
-        self.stop_time = stop_time
+        self.time_block.start_time = start_time
+        self.time_block.stop_time = stop_time
 
         #TODO: should affect calendar and check for conflicting time

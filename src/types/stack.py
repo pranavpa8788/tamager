@@ -1,7 +1,7 @@
 from typing import List
 from dataclasses import dataclass
 
-from task import Task
+from src.types.task import Task
 
 @dataclass
 class Stack:

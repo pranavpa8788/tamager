@@ -2,24 +2,30 @@ from dataclasses import dataclass
 from typing import List
 from datetime import datetime
 
-from ..stack import Stack
+from src.types.task import Task
+from src.types.stack import Stack
 
 @dataclass
 class CalendarManager:
-    stacks: List[Stack]
 
     #NOTE: can be made into an efficient algorithm if we store a datetime based sorted array of tasks in each stack,
     # but at the moment this is not necessary as the number of tasks won't be that much
-    def validate_time_block(self, start_time: datetime, stop_time: datetime, stack_filter: List[Stack]) -> bool:
-        stacks = self.stacks
+    def validate_time_block(self, task: Task, stack: Stack) -> bool:
 
-        if stack_filter:
-            stacks = stack_filter
+        if task.time_block is None:
+            raise Exception(f"Given task: {task} does not have a time_block")
+        
+        start_time = task.time_block.start_time
+        stop_time = task.time_block.stop_time
 
-        for stack in stacks:
-            for task in stack.tasks:
-                if (task.start_time is not None) and (task.stop_time is not None):
-                    if (start_time > task.start_time and stop_time > task.stop_time) or (start_time < task.start_time and stop_time < task.stop_time):
-                        return True
-                    else:
-                        return False
+        for other in stack.tasks:
+            if other == task or other.time_block is None:
+                continue
+
+            other_start_time = other.time_block.start_time
+            other_stop_time = other.time_block.stop_time
+
+            if start_time < other_stop_time and stop_time > other_start_time:
+                return False
+        
+        return True
