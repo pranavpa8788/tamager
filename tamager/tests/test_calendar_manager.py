@@ -1,10 +1,10 @@
 from datetime import datetime
 
-from src.types.task import Task
-from src.types.stack import Stack
-from src.types.status import STATUS
-from src.types.time.time_block import TimeBlock
-from src.managers.calendar_manager import CalendarManager
+from tamager.types.task import Task
+from tamager.types.stack import Stack
+from tamager.types.status import STATUS
+from tamager.types.time.time_block import TimeBlock
+from tamager.managers.calendar_manager import CalendarManager
 
 def test_non_blocking_time_blocks_1():
     """

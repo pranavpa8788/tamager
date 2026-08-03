@@ -2,12 +2,12 @@ from uuid import UUID, uuid4
 from datetime import datetime
 from dataclasses import dataclass, field
 
-from src.types.tag import TAG
-from src.types.status import STATUS
-from src.types.category import CATEGORY
-from src.types.priority import PRIORITY
-from src.types.time.time_log import TimeLog
-from src.types.time.time_block import TimeBlock
+from tamager.types.tag import TAG
+from tamager.types.status import STATUS
+from tamager.types.category import CATEGORY
+from tamager.types.priority import PRIORITY
+from tamager.types.time.time_log import TimeLog
+from tamager.types.time.time_block import TimeBlock
 
 #TODO: move start_time and stop_time into a separate time block object and add field for time log record
 

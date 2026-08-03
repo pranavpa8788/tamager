@@ -5,8 +5,8 @@
 * Status (TODO/IN PROGRESS/BLOCKED/DONE)
 * Category (optional)
 * Priority (optional)
-* Label/Tag (optional)
-* Efforts?
+* Tag (optional)
+* Time/Efforts estimate? (very important)
 * Start time (optional)
 * Stop time (optional)
 * Stale: true if blocked time has expired

@@ -2,8 +2,8 @@ from dataclasses import dataclass
 from typing import List
 from datetime import datetime
 
-from src.types.task import Task
-from src.types.stack import Stack
+from tamager.types.task import Task
+from tamager.types.stack import Stack
 
 @dataclass
 class CalendarManager:

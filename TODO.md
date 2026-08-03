@@ -1,6 +1,8 @@
 # TODO
 
 * Finish basic workflow 1 
+    * Design the UI layout
+    * Setup DB
 
 * Restructure so this exists like an api/library
 
